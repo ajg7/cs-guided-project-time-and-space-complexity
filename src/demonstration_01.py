@@ -20,4 +20,20 @@ def two_sum(nums, target):
                 return [i, j]
     return "No solution found"
 
-print(two_sum([1,2,3,4,5], 5))
+print(two_sum([1,2,3,4,5], 46))
+
+# Another solution
+#O(n) + O(n) = O(2 * n) = O(n)
+
+def two_sums(nums, target):
+    dict = {}
+
+    for i in range(len(nums)):
+        dict[nums[i]]= i
+        
+    for i in range(len(nums)):
+        complement = target - nums[i]
+        if complement in dict and dict[complement] != i:
+            return [i, dict[target - nums[i]]]
+        
+    return "no solution found"
